@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_api.vievsets import LibaryView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rest/', LibaryView.as_view(), name='rest-view'),
 ]
