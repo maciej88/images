@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rest_api.vievsets import LibaryView
+from rest_api.vievsets import LibaryView, LibaryDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('rest/', LibaryView.as_view(), name='rest-view'),
+    path('rest/<int:pk>/', LibaryDetail.as_view()),
 ]

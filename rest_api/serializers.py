@@ -5,4 +5,4 @@ from rest_framework import serializers
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Libary
-        fields = ('synthetic_id', 'album_id', 'title', 'link')
+        fields = ('id', 'album_id', 'title', 'link')
