@@ -1,18 +1,18 @@
 from rest_framework import generics
-from rest_api.serializers import LibaryUpdateSerializer
-from images_app.models import Libary
+from rest_api.serializers import LibraryUpdateSerializer
+from images_app.models import Library
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
 
-class LibaryListView(APIView):
+class LibraryListView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'api.html'
 
     def get(self, request):
-        queryset = Libary.objects.all()
+        queryset = Library.objects.all()
         return Response({'queryset': queryset})
 
     # def post(self, request):
@@ -21,10 +21,10 @@ class LibaryListView(APIView):
     #     return Response({'queryset': queryset, 'activation':activation})
 
 
-class LibaryDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Libary.objects.all()
-    serializer_class = LibaryUpdateSerializer
+class LibraryDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Library.objects.all()
+    serializer_class = LibraryUpdateSerializer
 
-class LibaryCreateView(generics.CreateAPIView):
-    serializer_class = LibaryUpdateSerializer
+class LibraryCreateView(generics.CreateAPIView):
+    serializer_class = LibraryUpdateSerializer
 

@@ -1,13 +1,13 @@
-from images_app.models import Libary
+from images_app.models import Library
 from rest_framework import serializers
 
 
-# class LibaryListSerializer(serializers.HyperlinkedModelSerializer):
+# class LibraryListSerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
-#         model = Libary
+#         model = Library
 #         fields = ('id', 'album_id', 'title', 'link', 'width', 'height')
 
-class LibaryUpdateSerializer(serializers.HyperlinkedModelSerializer):
+class LibraryUpdateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Libary
+        model = Library
         fields = ('id', 'album_id', 'title', 'link')
