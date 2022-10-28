@@ -5,13 +5,21 @@ import json
 def get_data():
     db = sqlite3.connect('../db.sqlite3')
     cursor = db.cursor()
+    cursor.execute(
+        '''CREATE TABLE IF NOT EXISTS images_app_libary (id integer NOT NULL primary key, album_id integer NULL, title varchar(300) NULL, height integer NULL, width integer NULL, link varchar(100))''')
     link = 'https://jsonplaceholder.typicode.com/photos'
     response = urlopen(link)
     data_json = json.loads(response.read())
     for i in data_json:
-        print(i['albumId'])
-        print(i['id'])
-        print(i['title'])
-        print(i['url'])
-        print(i['thumbnailUrl'])
-        print('=================')
+        id = i['id']
+        album_id = i['albumId']
+        title = i['title']
+        height = ""
+        width = ""
+        link = i['thumbnailUrl']
+        #i['url']
+        cursor.execute('INSERT OR REPLACE INTO images_app_libary VALUES (?, ?, ?, ?, ?, ?)', (id, album_id, title, height, width, link))
+        db.commit()
+    db.close()
+
+get_data()
