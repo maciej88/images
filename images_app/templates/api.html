@@ -10,44 +10,54 @@
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <div class="d-flex p-2">
-    <div class="p-3 mb-2 bg-light text-black">
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <a href="{% url 'create' %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create</a>
-{% block body %}
+        <div class="p-3 mb-2 bg-light text-black">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <a href="{% url 'create' %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create</a>
+                    <button onclick="activation" type="submit" class="btn btn-outline-success my-2 my-sm-0">
+                        Create from JSON
+                    </button>
+                    <div class="d-flex p-2">
+                </form>
+                <div class="p-3 mb-2 bg-light text-black">
+
+                </div>
+        </div>
+        </head>
+
+        {% block body %}
 
 
-</form>
-        </nav>
-    </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">album id</th>
+                    <th scope="col">title</th>
+                    <th scope="col">link</th>
+                    <th scope="col">width</th>
+                    <th scope="col">height</th>
+                    <th scope="col">details/ update/ destroy</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in queryset %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.album_id }}</td>
+                        <td>{{ i.title }}</td>
+                        <td>{{ i.link }}</td>
+                        <td>{{ i.width }}</td>
+                        <td>{{ i.height }}</td>
+                        <td><a href="{% url 'detail' i.id %}"
+                               class="btn">details</a></td>
+                    </tr>
+                {% endfor %}
 
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">album id</th>
-            <th scope="col">title</th>
-            <th scope="col">link</th>
-            <th scope="col">width</th>
-            <th scope="col">height</th>
-            <th scope="col">details/ update/ destroy</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for i in queryset %}
-        <tr>
-            <td>{{ i.id}}</td>
-            <td>{{ i.album_id }}</td>
-            <td>{{ i.title }}</td>
-            <td>{{ i.link }}</td>
-            <td>{{ i.width }}</td>
-            <td>{{ i.height }}</td>
-            <td><a href="{% url 'detail' i.id %}"
-                   class="btn">details</a></td>
-        </tr>
-        {% endfor %}
+                </tbody>
+            </table>
+            </div>
 
-        </tbody>
-    </table>
 
-{% endblock %}
+        {% endblock %}
+</html>

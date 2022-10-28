@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
+
 class LibaryListView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'api.html'
@@ -13,6 +14,11 @@ class LibaryListView(APIView):
     def get(self, request):
         queryset = Libary.objects.all()
         return Response({'queryset': queryset})
+
+    # def post(self, request):
+    #     queryset = Libary.objects.all()
+    #     activation = get_data()
+    #     return Response({'queryset': queryset, 'activation':activation})
 
 
 class LibaryDetailView(generics.RetrieveUpdateDestroyAPIView):

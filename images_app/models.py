@@ -1,7 +1,7 @@
-import binascii
+from django.urls import reverse
 
 from django.db import models
-import binascii
+
 
 
 # Create your models here.
@@ -12,6 +12,10 @@ class Libary(models.Model):
     link = models.ImageField(null=True, blank=True, upload_to='images/', height_field="height", width_field="width")
     width = models.IntegerField(null=True)
     height = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.link
+
 
     # with open(link, 'rb') as f:
     #     content = f.read()
