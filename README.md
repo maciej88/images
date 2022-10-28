@@ -9,3 +9,4 @@ django rest view for management small database (data is storage in local databas
 - possibility of filling database from JSON link:
 https://jsonplaceholder.typicode.com/photos by command from folder "python db_fill.py"
 - unfortunately not done: calculating HEX dominant color, save correct photo patch from external link in to local db.
+- secret key in .env
