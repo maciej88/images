@@ -1,4 +1,7 @@
+import binascii
+
 from django.db import models
+import binascii
 
 
 # Create your models here.
@@ -9,3 +12,15 @@ class Libary(models.Model):
     link = models.ImageField(null=True, blank=True, upload_to='images/', height_field="height", width_field="width")
     width = models.IntegerField(null=True)
     height = models.IntegerField(null=True)
+
+    # with open(link, 'rb') as f:
+    #     content = f.read()
+    # hex = binascii.hexlify(content)
+    # def get_dominant_color(self, link):
+    #     img = link.copy()
+    #     img = img.convert("HEX")
+    #     img = img.resize((1,1), resample=0)
+    #     dominant_color = img.getpixel((0,0))
+    #     return dominant_color
+    #
+    # dominant_color = models.IntegerField(null=True)
