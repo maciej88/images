@@ -1,0 +1,32 @@
+
+{% block body %}
+<table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>album id</th>
+            <th>title</th>
+            <th>link</th>
+            <th>width</th>
+            <th>height</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in queryset %}
+        <tr>
+            <td>{{ i.id}}</td>
+            <td>{{ i.album_id }}</td>
+            <td>{{ i.title }}</td>
+            <td>{{ i.link }}</td>
+            <td>{{ i.width }}</td>
+            <td>{{ i.height }}</td>
+            <td>{{ book.publication_language }}</td>
+            <td><a href="{% url 'detail' i.id %}"
+                   class="btn">details</a></td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
